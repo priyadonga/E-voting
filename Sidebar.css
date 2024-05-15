@@ -1,0 +1,43 @@
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    background-color: #343a40; 
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  .sidebar .logo img {
+    max-width: 100%;
+  }
+  
+  .sidebar .menu {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar .menu-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s ease-in-out; 
+  }
+  
+  .sidebar .menu-item.active {
+    background-color: #007bff; 
+  }
+  
+  .sidebar .menu-item a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .sidebar .menu-item a:hover {
+    background-color: #555; 
+    color: white;
+  }
+ 
+  .img-fluid{
+    border-radius: 50%;
+    width: 100px;
+  }
+
+
+ 

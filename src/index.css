@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Reusable CSS */
+body{
+  background-color: #001124;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#sidebar-toggle{
+  display: none;
 }
+#sidebar-toggle:checked ~ .sidebar{
+  width: 0;
+  overflow-x: hidden;
+}
+#sidebar-toggle:checked ~ .sidebar .menu-head{
+  opacity: 0;
+}
+#sidebar-toggle:checked ~ .main-content{
+  margin-left: 0;
+}
+.sidebar {
+  width: 257px;
+  position: fixed;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  z-index: 20;
+  overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar{
+  background-color: white;
+  width: 3px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background-color: gainsboro;
+}
+header{
+  position: sticky;
+  top: 0px;
+  z-index: 99999;
+}
+.bg-body-tertiary{
+  background-color: #001124 !important;
+}
+.main-content {
+  margin-left: 257px;
+}
+main{
+  padding: 1.5rem;
+  min-height: calc(100vh - 70px);
+}
+.main-box::-webkit-scrollbar,.main-box3::-webkit-scrollbar{
+  background-color: var(--scrollbar-color);
+  width: 3px;
+}
+.main-box::-webkit-scrollbar-thumb,.main-box3::-webkit-scrollbar-thumb{
+  background-color: var(--scrollbarup-color);
+}
+th{
+  font-size: 18px;
+}
+td{
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
