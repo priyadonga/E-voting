@@ -25,7 +25,7 @@ const Userlogin = () => {
           localStorage.setItem("userData", JSON.stringify(res.data.data));
           name.current.value = "";
           password.current.value = "";
-          navigate('/voter'); 
+          navigate('/home'); 
         } 
       } catch (error) {
         console.error("Login error:", error);

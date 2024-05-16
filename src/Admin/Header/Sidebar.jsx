@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../img/logo.png";
 import { path } from '../Path';
-import { FaBars } from 'react-icons/fa'; 
+import { FaBars } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+    const navigate = useNavigate();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
@@ -18,7 +20,8 @@ const Sidebar = () => {
     };
 
     const handleLogout = () => {
-        window.location.href = '/adminlogin';
+        localStorage.removeItem('role'); // Clear the user role from local storage
+        navigate('/');
     };
 
     return (

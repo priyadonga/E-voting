@@ -1,15 +1,4 @@
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
-import Adminlogin from "./components/Adminlogin";
-import Dashboard from "./Admin/Pages/Dashboard";
-import Party from "./Admin/Pages/Party";
-import Election from "./Admin/Pages/Election";
-import Conction from "./Admin/Pages/Conction";
-import User from "./Admin/Pages/User";
-import Profile from "./Admin/Pages/Profile";
-import UserNav from "./User/Header/UserNav";
-import Home from "./User/Pages/Home";
-import Userlogin from "./components/Userlogin";
-
 import { useDispatch } from "react-redux";
 import {
   GET_ALL_CONNECTION_PENDING,
@@ -20,6 +9,16 @@ import {
 } from "./redux-saga/admin/action/Action";
 import { useEffect } from "react";
 import { election_get_req, party_get_req, partylist_get_req, user_get_req, vote_get_req } from "./redux-saga/Constant";
+
+import Adminlogin from "./components/Adminlogin";
+import Dashboard from "./Admin/Pages/Dashboard";
+import Party from "./Admin/Pages/Party";
+import Election from "./Admin/Pages/Election";
+import Conction from "./Admin/Pages/Conction";
+import User from "./Admin/Pages/User";
+import Profile from "./Admin/Pages/Profile";
+import Home from "./User/Pages/Home";
+import Userlogin from "./components/Userlogin";
 import Sidebar from "./Admin/Header/Sidebar";
 
 const getRole = () => {
@@ -70,20 +69,9 @@ const App = () => {
   if (role === "user") {
     return (
       <>
-        <UserNav />
-        <div
-          className="container"
-          style={{
-            maxWidth: "1150px",
-            padding: "30px 40px 40px",
-            height: "100vh",
-            marginLeft: "310px",
-          }}
-        >
           <Routes>
             <Route path="/home" element={<Home />} />
           </Routes>
-        </div>
       </>
     );
   }

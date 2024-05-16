@@ -1,40 +1,40 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_ELECTION_PENDING, GET_ALL_ELECTION_PENDING } from "../../redux-saga/admin/action/Action";
 import { election_get_req, election_post_req } from "../../redux-saga/Constant";
 
 const Election = () => {
-  const nameRef = useRef();
+    const nameRef = useRef();
     const dateRef = useRef();
 
-  let dispatch = useDispatch();
- 
-  let data = useSelector((state) => state.adminReducer.election)
+    let dispatch = useDispatch();
 
- 
+    let data = useSelector((state) => state.adminReducer.election)
 
-  // Function to handle form submission for adding election
-  const handleSubmit = () => {
-    const newData = {
-      election_name: nameRef.current.value,
-      date: dateRef.current.value,
-  };
-    dispatch({ type: ADD_ELECTION_PENDING, payload: newData, endpoint: election_post_req })
-  };
 
-  // Function to handle deletion of election
-  const handleDelete = (id) => {
-    console.log(id);
-  };
 
-  // Dummy function for handling update (not implemented)
-  const handleUpdate = () => {
-    console.log("Update");
-  };
+    // Function to handle form submission for adding election
+    const handleSubmit = () => {
+        const newData = {
+            election_name: nameRef.current.value,
+            date: dateRef.current.value,
+        };
+        dispatch({ type: ADD_ELECTION_PENDING, payload: newData, endpoint: election_post_req })
+    };
 
-  return (
-    <>
-      <div className="main-content text-light">
+    // Function to handle deletion of election
+    const handleDelete = (id) => {
+        console.log(id);
+    };
+
+    // Dummy function for handling update (not implemented)
+    const handleUpdate = () => {
+        console.log("Update");
+    };
+
+    return (
+        <>
+            <div className="main-content text-light">
                 <div class="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog position-relative" style={{ top: '10%' }}>
                         <div class="modal-content">
@@ -100,8 +100,8 @@ const Election = () => {
                 </main >
 
             </div >
-    </>
-  );
+        </>
+    );
 };
 
 export default Election;
