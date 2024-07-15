@@ -65,7 +65,6 @@ const App = () => {
           </>
         )}
         {role === 'user' && <Route path="/home" element={<Home />} />}
-        {/* Add other routes as needed */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

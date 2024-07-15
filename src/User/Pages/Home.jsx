@@ -11,7 +11,6 @@ const Home = () => {
     const navigate = useNavigate();
   
     const handleSubmit = (Output) => {
-      // Handle submission of selected data
       if (selectedData) {
         Output(selectedData);
         setSelectedData(null);
@@ -20,7 +19,7 @@ const Home = () => {
     };
   
     const handleLogout = () => {
-      localStorage.removeItem('role'); // Clear the user role from local storage
+      localStorage.removeItem('role'); 
       navigate('/');
     };
   
@@ -57,10 +56,8 @@ const Home = () => {
         };
         dispatch({ type: ADD_VOTE_PENDING, endpoint: vote_post_req, payload: data });
         
-        // Navigate to a different page after submitting vote
         navigate('/');
         localStorage.clear();
-        // Reload the page
         window.location.reload();
     };
 
