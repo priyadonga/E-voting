@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_PARTY_PENDING, GET_ALL_PARTY_PENDING } from '../../redux-saga/admin/action/Action';
-import { party_get_req, party_post_req } from '../../redux-saga/Constant';
+import { ADD_PARTY_PENDING, GET_ALL_PARTY_PENDING, DELETE_PARTY_PENDING } from '../../redux-saga/admin/action/Action';
+import { party_get_req, party_post_req, party_delete_req } from '../../redux-saga/Constant';
 
 export default function Party() {
   const nameRef = useRef();
@@ -39,12 +39,12 @@ export default function Party() {
     }
   };
 
-  
+
   const handleDelete = (id) => {
-    console.log(id);
+    dispatch({ type: DELETE_PARTY_PENDING, payload: id, endpoint: party_delete_req });
   };
 
- 
+
   const handleUpdate = () => {
     console.log("Update");
   };
@@ -114,7 +114,7 @@ export default function Party() {
                       <td>
                         <img src={val.party_logo} style={{ width: "50px", height: "50px" }} alt="Party Logo" />
                       </td>
-                      <td><button onClick={() => handleDelete(val._id)} className="btn btn-danger">Delete</button></td>
+                      <td><button onClick={() => handleDelete(val.id)} className="btn btn-danger">Delete</button></td>
                     </tr>
                   ))}
                 </tbody>

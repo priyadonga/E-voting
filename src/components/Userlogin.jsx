@@ -37,7 +37,7 @@ const Userlogin = () => {
   };
 
   const handleAdminLogin = () => {
-    navigate('/Adminlogin');
+    navigate('/');
   };
 
   return (

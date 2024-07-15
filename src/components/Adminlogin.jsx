@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import axios from 'axios';
 import img from '../../src/img/login.png';
 import { useNavigate } from 'react-router-dom'; 
 
@@ -8,38 +7,26 @@ const Adminlogin = () => {
   const password = useRef();
   const navigate = useNavigate(); 
 
-  const handleSubmit = async () => {
-    const data = {
-      name: name.current.value,
-      password: password.current.value,
-    };
+  const handleSubmit = () => {
+    const enteredName = name.current.value;
+    const enteredPassword = password.current.value;
 
-    if (name.current.value === "" || password.current.value === "") {
+    if (enteredName === "priya" && enteredPassword === "123") {
+      localStorage.setItem('role', 'admin');
       name.current.value = "";
       password.current.value = "";
-      return;
-    } 
-    
-    try {
-      const res = await axios.post("http://13.127.211.205:8000/v1/login/admin", data);
-      if (res.status === 200) {
-        localStorage.setItem('role', 'admin');
-        name.current.value = "";
-        password.current.value = "";
-        navigate('/dashboard'); 
-      }
-    } catch (error) {
-      console.error("Login error:", error);
+      navigate('/dashboard');
+    } else {
       name.current.value = "";
       password.current.value = "";
-      window.alert("Incorrect adminname or password. Please try again."); 
+      window.alert("Incorrect admin name or password. Please try again.");
     }
   };
 
   const handleUserLogin = () => {
     navigate('/Userlogin');
   };
-
+  
   return (
     <div className="container-fluid" style={{ paddingTop: '4rem', paddingBottom: '5rem' }}>
       <div className="row">

@@ -22,6 +22,16 @@ let postData = (action) => {
         return { data, status }
     })
 }
+let deleteData = (action) => {
+    console.log(action, "delete data api");
+    let { endpoint } = action;
+    console.log(action);
+    return axios.delete(Base_url + endpoint, action.payload).then((res) => {
+        let data = res.data;
+        let status = res.status;
+        return { data, status };
+    });
+};
 
 
-export { getData, postData } 
+export { getData, postData, deleteData } 
